@@ -1,3 +1,6 @@
+
+
+
 # How can we maximise profit as an airbnb host?
 
 
@@ -14,6 +17,7 @@
 4. [EDA_Last25.ipnyb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Last25.ipynb)
 5. [Airbnb_EDA_Vizualization.ipnyb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_EDA_Visualization.ipynb)
 6. [Airbnb_LinearRegression.ipnyb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_LinearRegression.ipynb)
+7. [Airbnb_Machine_Learning.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_Machine_Learning.ipynb)
 ## We are using Airbnb Singapore Dataset on 29 December 2022 and the source is located in http://insideairbnb.com/get-the-data/
 
 ## Content
@@ -24,7 +28,7 @@
 4. Explaining general utility functions that we have created
 5. Dataset importing and cleaning of dataset
 6. Exploratory Data Analysis
-7. Linear Regression (Machine Learning)
+7. Machine Learning
 8. Conclusion
 9. Video Presentation
 10. References
@@ -52,9 +56,9 @@ Geopandas: Handle geojson data to generate chloropelth maps
 Sklearn: Machine Learning
 
 ## Explaining General Utility functions that we have created
-countOutliers(df) takes in a pandas dataframe as argument. It then finds the 1st and 3rd quartile in the dataframe. By applying the formula of 1st quartile - 1.5 * interquartile range and 3rd quartile + 1.5* interquartile range, we can deduce which data is a outlier as an outlier would be outside the range of the values we have calculated from the 2 formulas. This way, we can count the number of outliers with a for loop.
+countOutliers(df) uses interquartile range method to count number of outliers
 
-removeOutliers(df) uses the same principle as countOutliers to find out which data is an outlier, we then apply pandas loc method to exclude data that are outside the range of non-outlier values.
+removeOutliers(df) uses the same principle as countOutliers to remove rows that have outliers
 
 The purpose of the general utility function is to assist with our data cleaning process.
 
@@ -170,19 +174,43 @@ From this data, we can map out where each listing is on the Singaporean map.![en
 We can see that a large number of points are concentrated in the central region, as well as Kallang, Downtown Core and Outram.
 
 
-## Linear Regression
-We have chose regression as our Machine Learning model to help with our prediction. The notebook for this part is [Linear_Regression](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_LinearRegression.ipynb) which will include the code and more detailed information.
+## Machine Learning
+We have chose regression as our Machine Learning model to help with our prediction. The notebook for this part is [Linear_Regression](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_LinearRegression.ipynb) and [Machine_Learning](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_Machine_Learning.ipynb) which will include the code and more detailed information.
 We split the dataset into train and test sets of 80:20 ratio for our machine learning model.
-
+### Linear Regression Notebook
+#### One hot encoding
+We have decided to apply One-Hot Encoding to our categorical data to aid us in training such data using our machine learning models.
+#### Linear Regression modelling
+Firstly, we trained our model using all the features vs the price. We found that explained variance is relatively low and we have observed that there exist extreme predictions for certain features.
+Next, we train each independent column against the price to gain some insight. We noticed that host_response_time, neighbourhood_cleansed, neighbourhood_group_cleansed, property_type, accommodates, number of amenities and number of reviews have a low explained variance and would not be helpful.
+It is important to note that amenities vs price did yield signficantly better result with an explained variance of 0.5.
+#### Ridge Regression
+We decided to try Ridge Regression as it allows the analysis of data when multicollinearity is present and prevents overfitting of data. We noticed that Ridge regression yields very similar results to linear regression. 
+#### Lasso Regression
+We attempt lasso regression to see if it could yield better results as a linear model for our dataset. We also noticed similar results to linear regression.
+#### Gradient Booster
+Gradient Booster is the type of machine learning algorithm that is used to build predictive models using iterative improvement. We noted its ability to model non-linear relationships as our linear model have limited success for a few of our columns. It utilises weak learners such as decision tress to build stronger model.
+#### XGBoost
+XGBoost is a specific implementation of Gradient Booster that has higher performance and has improved model generalization capabilities. We noted that the results are very similar to that of Gradient Booster
+#### Analysing the different models
+![](https://lh3.googleusercontent.com/pw/AJFCJaXVA4bjHYLRlRwTTt2XBNsft7NHrjQY3gu_aijD9fGs6xadu4gAyH1XVpho2Hh3IbGg10Wtx0hm7t99OIejRkxuoDttdVNqpwVs7UZmD21v8fvIt54na05RmwQBQLzISfysOVWXCWazBG9wTfDGwXi0zSL6BvRk5172K9tUBc7xP32WiFPYT20_W6Fc2YJp9Zl6enV7KOUuBxPYPO0ucBszt7MIeE7yw9E7nyEdOeAZA_zn9OxhTEY0G_i0eccx133MDz-qFzg96llVud5Tk5aVYNmU53cIMxdgNM4Fs_CQpdFGF6b5Hj2QqOpi6Abu-17H1AD4D7vgjTA9PMmdqXLjiMUkMdjL8MrxTTty0MOY7G6mKsXHUpjjLR5ushhluAbGQ40VmW45rVKIEuUeyaIZz3N3oQ8jGTsEaBUPvJBMGHtcm0t3-teQ5fPHDfBNeUBT53_m6ZZEoZ_SSBp88C6XMeVwcK871WPXctdCSNLIfmMVMX7ij0Q2Ebo1b8EjU8vEgzkzMoaKv22qF9TVbuqMhRrD--H6lcb3Zolt_vmtKqdsh0fNdaVC0LAQViRsQHldITi2tZwjaWpcrTU2pAbmSQK0gm4057HwfvbUYyNDTezcuJu3d3C9u6_3sZzBZq-Qs6Z5120Rdwnh23hMTeqec2tnbUGcX3qXx9PzV1Jzu9IWT4lKmAD0qQi95izSQgslhnp9NByOKZKsExL-ENfs8sjB3VUMhUBOx8tFhejBU-rmAjdapsiwO8ktS0IlvmqCzqOfSM5QdaK-VZTi9AKzRsh2qcg8V1vv10KcUIP5kQ0Ho02Cs7Mw8p5X6JHhN-fDUlLUnmlXTa_8RwCTbyhKp05otqthxNKLJIkfgKvLnEeiA5QzrKhT2_wqnvaAtdela0wVmtVz3ASWBu5hcjp6WKTO5vT8Cf4b8GKXEmLD4osLZV0WDooVCQYDNwMYvoR_MSKYD_zG_vfv963saUuHJfk5MykC_sQAdD8ZQdpYCrAJ9FJ5n9xb6D8sDfTrH2rtVZs=w1462-h804-s-no?authuser=1)
+![enter image description here](https://lh3.googleusercontent.com/pw/AJFCJaXywqUUrNSf7Uw4cF0Jt_QrR7-GD3RMZdSNqH2iQN9beHEQ24H6k3FXcw8AgfhxDc4V69ZMyRfsu5gC4leE3itMOGlyz2J4DmDrCTCid4C-X5iJDJaSL2oZEhDpN7zwnyTnzPSnJcE1Xf5FUcjEpBcQT0UoeG8ARiZ6vogjqGit85CvU-54tTyTqodKuKOTDHQuVrezIK_WM7h2EDO7FZdRKc-44lUE-0qb2uWkS_hLI0fg2iuHKOzYTg8IOG2UPRQZW9EpuAyneWf7_wR3Q9ZsDBL0--53JwTyiW-jhKDLt7JvEEQlsP2tkFblYKYTPc39U-xoLiLYRKR8mGhveHnt9dbPI6k0H8_gGx1TbVobJDa2WyoKyv9fGXNzia3EGuJ1SBe6kSUSuCElHynKKOI75XHgk5tcZq3_8iP5rj1J7IDjxAoWcv5akzlrKzIATBw5apQAOWfdapw577R6Cy92HTn6Isle1ZLolqPren8cnQoGRZI-VdQsG1Wey2L5wPUCv2uEbvrmnGNhXwcc6IaQF4UdRpXqmosBY1GFk0ivO3DJJcmDosLv7V0qhakaagdJNTnkuSB9nAaQtyTjqUSJihKAmydQc2s9mD1dfRFxgwY8x3iDUPloQ_G1hlKN5thyN9EtZ98wR9rtKHW86Vm4UsWiVDyYDI0GXpZIblFRNxX7N77KeZi4QtX0LMwN07a9xtDz3Un-0SnVHVapyR_zgdCWAESpvv-w-BUPUSbLxiKS9ZMTSunj99clj5QHsHu-Hats2KKSZWAZYWfPrGyOVjWYTMlhSbPIzpvLvi7OOeL26vybD_DnpKFFF9KN0FaeAuGBwLNLx_KdQbSvo_fn396_MIsQAmc9K8IZ5TiFO8wrnS-gZ67oXlmUxLtZzI_JanktxhZBdb5f1I2NQQDyGT3xzHZg7L1GapchLIhMiEy3SmlXrPmqByTC2rqCmASelEneaR5jg3tAC7NEL7Bx3CxF8VS-HhWFmwj59kTuHwCXtAmIM_nQUHd15N_Xta9uuXY=w1348-h781-s-no?authuser=1)
+![enter image description here](https://lh3.googleusercontent.com/pw/AJFCJaVJtemFDBmi7BiE7DKY9PuyhXJaC435pn0L0Z8RpyAwZUMMsw-SE-qy-CLa1FpyuskltkRfhbf8LzK_7-qjsVq4aKgK_k-Q_kX3OAZ2FgBaTl0joklGItneZ0kInrvGQ0Lzlzd0xpAfzDbwBXLBeNmP2NXTSMkuB0Cz7AebglxhlDxdlZqFGTn_XurP7V2tv01RMctEVWjXcUeVqrOlFjFY12ZOccDtQRFqwlwDAPjnP8QuGNcgfpGOSFAF-UNgvUKqR5edKs2sT_UVTfLP5StxlvGwrU0PDx_x0gcLNBRTd-ptFY_UY5wlHCreYluiR9fL-P8X42JYj-tNrVXE8z9oVDBh-EKH2NlnpxFiArCbntAhDHjGox4ZWG_bd_GjnTyY-DnJofJR8WLJJwV2WNZaX0mJKz7tdOuFUaglhg67GWJH2ZsRpkHxQweuPNnupYwti5M6kRfT14wBkl1zklUdHD-7Pa_3pTBQSsXkaka2fWPMd6ceZPJj3dXGFxH7dVyPpwtnZMm5PDtcoV_tI5LZpEolxRZeVjFPY8bXk2OHK-Ucr1Cuh3HiMmFRTJ4vdH015-vBQm4Xvz6Z2-LVGdIQHyQBKYYfgOCYVkTk6Fi83klPa_KsUXcgbrmKUG3LAfCSXd5VDn8ykpLkG9KPbEpn9N0Dihld0hvI3DWvkQ8Rv0TMCOy3I9E5d6rx7f41x4z5_UCEostTWXHVgrwnjYr--u3aGxq1VI2J64lE_XCxNVvHbL1vaoH9VNUYmCOFjYLOVy4ns1_vT8imWcgyrtXU2oErBuEoJDgNASBdByZ0hga61diunvWnez6VXkMOyEvYXE6huXoKyth1vtcxt6NmIl_yMtnwvzC0IDNbfRBJcwYhF1mXJsBgGe4IzkEiu3CWsTSmIrRUxeM9v0U5_KWAsunR8EKEb6UbKlvs4nW1sAYZG55WiWUN_kNfwjMqqeL_eh01nNvJDpNaSNGYA3gFJlnSCt9m5EmdlBsE0kEOJANEcV4_Nubnh5SpXEdNRBl92vU=w1350-h745-s-no?authuser=1)
+For our linear models, they performed very similarly for each respective columns. We notice that a few of our columns might not have linear relationship with price. However, we have noticed that Lasso Regression did the best as the explained variance was the highest amongst the 3 models and that it had the lowest mean squared error of the 3 models.
+Overall, Gradient Booster worked the best with an explained variance of 0.73 and a mean squared error of ~1900. This suggest that most of our data do indeed have non linear relationship with price. 
+The most prominent column would be amenities, where it has a huge correlation with price. The second would be property_type, which means that these 2 columns have some impact on our price.
+### Machine Learning Notebook
+#### Multi-Variate K Means
+We first fill in any missing values for each column with the median of that particular column. We chose to use the elbow method so that we will computed all the Sum of squared Errors(SSE) for each "k" and store into a list. We observe that the elbow point occurs between 2 to 3 of "Number of Clusters". We then apply another technique called silhouette coefficient to find the best k. We observe that 4 is the best option. Hence, we will split our data into 4 clusters. We then observe the graphs of each independent column against each of the 4 clusters. --To be Continued--
 
 
 
 ## Conclusion
-
+--To be added-
 
 
 ## Video Presentation
-
+--To be added--
 
 
 
@@ -201,5 +229,10 @@ We split the dataset into train and test sets of 80:20 ratio for our machine lea
 [https://www.kaggle.com/code/subhradeep88/airbnb-analysis-eda/notebook](https://www.kaggle.com/code/subhradeep88/airbnb-analysis-eda/notebook "https://www.kaggle.com/code/subhradeep88/airbnb-analysis-eda/notebook")  
 [https://www.kaggle.com/code/ivanovskia1/maximize-value-of-airbnb-rental](https://www.kaggle.com/code/ivanovskia1/maximize-value-of-airbnb-rental "https://www.kaggle.com/code/ivanovskia1/maximize-value-of-airbnb-rental")  
 [https://towardsdatascience.com/how-to-maximize-profits-on-airbnb-data-based-approach-for-hosts-beaf08f26941](https://towardsdatascience.com/how-to-maximize-profits-on-airbnb-data-based-approach-for-hosts-beaf08f26941 "https://towardsdatascience.com/how-to-maximize-profits-on-airbnb-data-based-approach-for-hosts-beaf08f26941")
-
 ![](blob:https://web.telegram.org/2fefbf5c-0041-422a-a761-b077bad5ac1a)
+https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html
+https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html
+https://xgboost.readthedocs.io/en/stable/python/python_intro.html
+https://medium.com/@jjosephmorrison/one-hot-encoding-to-set-up-categorical-features-for-linear-regression-6bac35661bb6
+https://realpython.com/k-means-clustering-python/
+https://machinelearningmastery.com/how-to-transform-data-to-fit-the-normal-distribution/

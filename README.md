@@ -34,7 +34,8 @@
 5. [Extra ML models](#Extra-ML-Models) 
 6. [Conclusion](#Conclusion)
 7. [Video Presentation](#Video-Presentation)
-8. [References](#References)
+8. [Task Delegation](#Task-Delegation)
+9. [References](#References)
 
 
 # Introduction

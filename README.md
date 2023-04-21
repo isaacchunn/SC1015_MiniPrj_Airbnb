@@ -36,14 +36,9 @@
 
 
 # Introduction
-![PICTURE OF AIRBNB LOGO]
-<p align="center">
-  <img width="460" height="300" src="https://www.digital.ink/wp-content/uploads/airbnb_logo_detail.jpg">
-</p>
+![PICTURE OF AIRBNB LOGO](https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png)
 
 **Airbnb, Inc.** is an American San Francisco-based company operating an online marketplace for short-term homestays and experiences. The company acts as a broker and charges a commission from each booking. The company was founded in 2008 by Brian Chesky, Nathan Blecharczyk, and Joe Gebbia.
-
-
 
 ## Problem Statement
 1. **Problem Statement**: Identify the factors that could help maximise profit on Airbnb

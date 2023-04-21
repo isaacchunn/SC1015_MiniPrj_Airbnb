@@ -9,7 +9,7 @@
 ## Juypter Notebooks : 
 * **Exploration Data Analysis**
     * [EDA_First25.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_First25.ipynb) 
-    * [EDA_Middle25.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Middle25.ipynb)
+    * [EDA_Middle23.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Middle23.ipynb)
     * [EDA_Last25.ipnyb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Last25.ipynb)
 * **Uni & bi-variates Analysis**
     * [Airbnb_EDA_Vizualization.ipnyb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_EDA_Visualization.ipynb)
@@ -65,7 +65,7 @@ Variables related to listing's reviews will have positive correlation with price
 <br></br>
 # Dataset importing and Data Cleaning
 
-Our dataset is very large with 75 columns, hence, we first apply the pandas info method to get an overview of the columns that we are dealing with. By analysing the description of the columns, we have first exclude the columns that are obviously not relevant to our problem.
+Our dataset is very large with 73 columns, hence, we first apply the pandas info method to get an overview of the columns that we are dealing with. By analysing the description of the columns, we have first exclude the columns that are obviously not relevant to our problem.
 * ### Initial Visual Data Cleaning
 > We looked through the columns of our dataset and pick up the obviously redundant columns to drop such as the host identification number. This is shown in detail in the notebooks [EDA_First25](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_First25.ipynb), [EDA_Middle23](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Middle23.ipynb) and [EDA_last25](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Last25.ipynb).
 
@@ -83,7 +83,7 @@ We will be looking at the variables that are left after dropping the columns fro
 We analysed the columns of our dataset to find out if the columns provide any meaningful insight for our project and also find out which columns would be useful for more in-depth analysis.
 #### <ins>EDA_First25</ins>
 > host_location, ho</ins>st_location, host_is_superhost, host_verifications, host_response_rate have a very skewed data with 90% of the rows having the same output for each column respectively. Hence, we will drop these columns.
-#### <ins>EDA_Middle25</ins>
+#### <ins>EDA_Middle23</ins>
 > The variable beds which describes the number of beds available is unbalanced as a huge majority of listings only has 1 bed available. Therefore, we will drop the beds column.
 minimum_nights and maximum_nights will be used in our calculation of minimum and maximum profit a host can earn, but will not be directly used for prediction as a predictor.
 #### <ins>EDA_Last25</ins>
@@ -113,7 +113,7 @@ We will be using price as a response for simplicity. Let's talk a look at an exa
 **We found that the correlation heat map of amenities vs price show that there is a weak correlation between number of amenities and price.**
 <br></br>
 # Machine Learning
-The notebook for this part is [Linear_Regression](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_LinearRegression.ipynb) and [Machine_Learning](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_Machine_Learning.ipynb) which will include the code and more detailed information.
+The notebooks for this part is [Regression.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_Regression.ipynb) and [Machine_Learning.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_Machine_Learning.ipynb) which will include the code and more detailed information.
 We split the dataset into train and test sets of 80:20 ratio for our machine learning model.
 ### Models that we used:
 1. Linear Regression modelling

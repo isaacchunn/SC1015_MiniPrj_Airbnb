@@ -88,8 +88,6 @@ We analysed the columns of our dataset to find out if the columns provide any me
 #### <ins>EDA_Last25</ins>
 >The variables that are review related are skewed on the high end and is imbalanced, hence they shall be dropped. We believe that license should be dropped as it is not necessary to have an Airbnb listing. A majority of host chose not to enable instant booking, which results in high False outputs for the column instant_bookable.
 
-**In conclusion, we can assume that with a higher reviews rating or score, it can help attract more guests and ultimately maximise our profit as an Airbnb host. However, it should be noted that there are many other factors that can influence booking rates and profitability.**
-
 ## Uni-Variate EDA
 For the remaining EDA, kindly refer to [Airbnb_Visualization](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_EDA_Visualization.ipynb) for detailed code and explanation. The purpose of this part is to find interesting/useful insight of each column.
 

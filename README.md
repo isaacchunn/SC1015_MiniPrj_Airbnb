@@ -85,7 +85,6 @@ We analysed the columns of our dataset to find out if the columns provide any me
 > host_location, ho</ins>st_location, host_is_superhost, host_verifications, host_response_rate have a very skewed data with 90% of the rows having the same output for each column respectively. Hence, we will drop these columns.
 #### <ins>EDA_Middle23</ins>
 > The variable beds which describes the number of beds available is unbalanced as a huge majority of listings only has 1 bed available. Therefore, we will drop the beds column.
-minimum_nights and maximum_nights will be used in our calculation of minimum and maximum profit a host can earn, but will not be directly used for prediction as a predictor.
 #### <ins>EDA_Last25</ins>
 >The variables that are review related are skewed on the high end and is imbalanced, hence they shall be dropped. We believe that license should be dropped as it is not necessary to have an Airbnb listing. A majority of host chose not to enable instant booking, which results in high False outputs for the column instant_bookable.
 

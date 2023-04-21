@@ -65,7 +65,7 @@
 
 # Dataset Importing and Data Cleaning
 
-Our dataset is very large with 73 columns, hence, we first apply the pandas info method to get an overview of the columns that we are dealing with. By analysing the description of the columns, we have first exclude the columns that are obviously not relevant to our problem.
+Our dataset is very large with 73 columns, hence, we have to first apply the pandas info method to get an overview of the columns that we are dealing with. By analysing the description of the columns, we can exclude the columns that are obviously not relevant to our problem.
 * ### Initial Visual Data Cleaning
 > We looked through the columns of our dataset and pick up the obviously redundant columns to drop such as the host identification number. This is shown in detail in the notebooks [EDA_First25](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_First25.ipynb), [EDA_Middle23](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Middle23.ipynb) and [EDA_Last25](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Last25.ipynb).
 
@@ -113,11 +113,13 @@ We will be using price as a response for simplicity. Let's talk a look at an exa
 The notebooks for this part is [Regression.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_Regression.ipynb) and [Machine_Learning.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_Machine_Learning.ipynb) which will include the code and more detailed information.
 We split the dataset into train and test sets of 80:20 ratio for our machine learning model.
 ### Models that we used:
-1. Linear Regression modelling
+1. Linear Regression
 2. Ridge Regression
 3. Lasso Regression
 4. Gradient Booster
 5. XGBoost
+6. KMeans
+7. Random Forest
 ### One-hot Encoding (OHE)
 We have decided to apply One-Hot Encoding to our categorical data to aid us in training such data using our machine learning models.
 ## Analysing the different models

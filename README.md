@@ -6,13 +6,15 @@
 - J'sen Ong Jia Xuan U2220457J
 - Tang Teck Meng U2221809C
 
+
 ## Juypter Notebooks : 
 * **Exploration Data Analysis**
     * [EDA_First25.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_First25.ipynb) 
     * [EDA_Middle23.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Middle23.ipynb)
     * [EDA_Last25.ipnyb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Last25.ipynb)
-* **Uni & bi-variates Analysis**
-    * [Airbnb_EDA_Vizualization.ipnyb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_EDA_Visualization.ipynb)
+* **Uni/Bi/Multi-Variate Analysis**
+    * [Airbnb_EDA_Visualization.ipnyb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_EDA_Visualization.ipynb)
+    * [Airbnb_EDA_Visualization.ipnyb (To view interactive map)](https://nbviewer.org/github/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_EDA_Visualization.ipynb)
 * **Machine Learning**
     * [Airbnb_Regression.ipnyb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_Regression.ipynb)  
     * [Airbnb_Machine_Learning.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_Machine_Learning.ipynb)
@@ -27,9 +29,9 @@
 2) ### [Data Cleaning and Visualization](#Dataset_importing_and_DataCleaning)
     * [Uni-Variate EDA](##Uni-Variate-EDA) 
     * [Bi-Variate EDA](##Bi-Variate-EDA) 
-
-4. [Exploratory Data Analysis](#Exploratory-Data-Analysis)
-5. [Machine Learning](#Machine-Learning)
+3. [Exploratory Data Analysis](#Exploratory-Data-Analysis)
+4. [Machine Learning](#Machine-Learning) 
+5. [Extra ML models](#Extra-ML-Models) 
 6. [Conclusion](#Conclusion)
 7. [Video Presentation](#Video-Presentation)
 8. [References](#References)
@@ -44,10 +46,12 @@
 
 ## Problem Statement
 1. **Problem Statement**: Identify the factors that could help maximise profit on Airbnb
-2. **Motivation:** Help Airbnb host get a better idea on how to maximize profits for their Airbnb listings
-3. **Hypothesis:** The greater the number of amenities, the higher the listing price
-Variables related to listing's reviews will have positive correlation with price
-
+2. **Motivation:** Help Airbnb hosts get a better idea on how to maximize profits for their Airbnb listings
+3. **Hypothesis:** 
+    * The type of property and amenities will have a positive correlation with listing price
+    * The location of property will also affect listing price
+    * Variables related to the listing's review will affect listing price
+    
 ## Libraries used:
 1. **NumPy:** Library for Numeric Computations
 2. **Pandas:** Data Acquisition and preparation
@@ -55,24 +59,19 @@ Variables related to listing's reviews will have positive correlation with price
 4. **Seaborn:** High-level library for Data Visualization
 5. **Wordcloud:** Create word cloud
 6. **Folium:** Visualization of data on map
-7. **Geopandas:** Handle geojson data to generate chloropelth maps
+7. **Geopandas:** Handle geojson data to generate chloropleth maps
 8. **Sklearn:** Machine Learning
 
-## General Utility functions
-**The purpose of the general utility function is to assist with our data cleaning process**
-* **countOutliers(df) :** uses interquartile range method to count number of outliers
-* **removeOutliers(df) :** uses the same principle as countOutliers to remove rows that have outliers
-<br></br>
-# Dataset importing and Data Cleaning
+# Dataset Importing and Data Cleaning
 
 Our dataset is very large with 73 columns, hence, we first apply the pandas info method to get an overview of the columns that we are dealing with. By analysing the description of the columns, we have first exclude the columns that are obviously not relevant to our problem.
 * ### Initial Visual Data Cleaning
-> We looked through the columns of our dataset and pick up the obviously redundant columns to drop such as the host identification number. This is shown in detail in the notebooks [EDA_First25](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_First25.ipynb), [EDA_Middle23](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Middle23.ipynb) and [EDA_last25](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Last25.ipynb).
+> We looked through the columns of our dataset and pick up the obviously redundant columns to drop such as the host identification number. This is shown in detail in the notebooks [EDA_First25](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_First25.ipynb), [EDA_Middle23](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Middle23.ipynb) and [EDA_Last25](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Last25.ipynb).
 
 The general utility functions we have made will assist in removing outliers in our data.
 
-We will also be dropping those NULL values that do not have any significance value in the column or that the number of NULL values are too small for the column. An example would be dropping null rows for host_location as an Airbnb listing should have a string that contains the location name that corresponds with it.
-<br></br>
+We will also be dropping NULL values when NULL values do not mean anything in the column or that the number of NULL values are too small for the column. An example would be dropping null rows for host_location as an Airbnb listing should have a string that contains the location name that corresponds with it.
+
 # Exploratory Data Analysis
 We will look into univariate and bivariate EDAs concerning the interesting or important variables that we have identified.
 
@@ -90,7 +89,7 @@ minimum_nights and maximum_nights will be used in our calculation of minimum and
 >The variables that are review related are skewed on the high end and is imbalanced, hence they shall be dropped. We believe that license should be dropped as it is not necessary to have an Airbnb listing. A majority of host chose not to enable instant booking, which results in high False outputs for the column instant_bookable.
 
 **In conclusion, we can assume that with a higher reviews rating or score, it can help attract more guests and ultimately maximise our profit as an Airbnb host. However, it should be noted that there are many other factors that can influence booking rates and profitability.**
-<br></br>
+
 ## Uni-Variate EDA
 For the remaining EDA, kindly refer to [Airbnb_Visualization](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_EDA_Visualization.ipynb) for detailed code and explanation. The purpose of this part is to find interesting/useful insight of each column.
 
@@ -105,13 +104,13 @@ Many properties have amenities that allow long term stays, have air conditioning
 >![GRAPH](https://user-images.githubusercontent.com/105051750/233562445-8ce6292c-f7fc-43f8-afaf-bf2edf841815.png)
 >
 Looking at the number of amenities in a given Airbnb listing, we can see that this column has potential to being one of the predictors, with it being following a decent distribution, we will compare it to price later in our bivariate exploration.
-<br></br>
+
 ## Bi-Variate EDA
 We will be using price as a response for simplicity. Let's talk a look at an example using number of amenities. The remaining parts will be in our notebook.
 > ![enter image description here](https://user-images.githubusercontent.com/105051750/233576215-7a853777-7eb2-499e-841d-f3b901f8caac.png)
  
 **We found that the correlation heat map of amenities vs price show that there is a weak correlation between number of amenities and price.**
-<br></br>
+
 # Machine Learning
 The notebooks for this part is [Regression.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_Regression.ipynb) and [Machine_Learning.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/Airbnb_Machine_Learning.ipynb) which will include the code and more detailed information.
 We split the dataset into train and test sets of 80:20 ratio for our machine learning model.
@@ -125,7 +124,13 @@ We split the dataset into train and test sets of 80:20 ratio for our machine lea
 We have decided to apply One-Hot Encoding to our categorical data to aid us in training such data using our machine learning models.
 ## Analysing the different models
 ![VARIANCE](https://user-images.githubusercontent.com/105051750/233592677-4390c2fb-1b52-4584-9641-9c510f933630.png)
+
+---
+
 ![RMSE](https://user-images.githubusercontent.com/105051750/233563992-8c92e53c-4861-4ae9-99e7-f3eb7aa0230c.png)
+
+---
+
 ![MSE](https://user-images.githubusercontent.com/105051750/233564052-650d2022-1063-4822-aae8-35e387465e8c.png)
 ### <u>Insights</u> :
 1. For our linear models, they performed very similarly for each respective columns. We notice that a few of our columns might not have linear relationship with price. However, we have noticed that **Lasso Regression** did the best as the explained variance was the highest amongst the 3 models and that it had the lowest mean squared error of the 3 models.
@@ -133,18 +138,56 @@ We have decided to apply One-Hot Encoding to our categorical data to aid us in t
 2. Overall, **Gradient Booster** worked the best with an explained variance of 0.73 and a mean squared error of ~1900. This suggest that most of our data do indeed have non linear relationship with price.
  
 3. The most prominent column would be **amenities**, where it has a huge correlation with price. The second would be **property_type**, which means that these 2 columns have some impact on our price.
+# Extra ML Models
+## Multi-variate K Means
+![clustering](https://user-images.githubusercontent.com/105051750/233729879-69d3d765-23d1-47c6-b74b-85e901523a50.png)
 <br></br>
-# Machine Learning Notebook
-The following notebook shows us using Multi-variate K means, for detailed code and analysis, kindly refer to the Machine Learning Notebook.
+![clustering](https://user-images.githubusercontent.com/105051750/233730207-1daf1e54-2055-4986-9538-fb526d0b3095.png)
 <br></br>
-# Conclusion
---To be added-
-<br></br>
-# Video Presentation
---To be added--
-<br></br>
-# References
+We can infer from this that although no_amenities does not have a linear correlation when conducting our regression, this shows that no_amenities does affect our price predictions when they are in their clusters.
 
+## Random Forest 
+![randomForest](https://user-images.githubusercontent.com/105051750/233731554-34c2f4bd-7b3c-4a72-bc3c-911c260f48de.png)
+
+The top few important features in our classification was property_type, accommodates and no_amenities. This means that our initial findings during our KMeans for no_amenities might be beneficial in identifying trends was accurate. This also shows that our data is very categorically inclined.
+ 
+### Classification Report
+![randomForest](https://user-images.githubusercontent.com/105051750/233730920-17d9c8ee-3f6d-49f8-8e4b-b6185d698512.png)
+
+# Conclusion
+1. The dataset was very categorically inclined and did not have significant linear relationships
+2. Random Forest and Gradient Booster are the most suitable for our data set
+3. Gradient Booster was better as it was able to identify non-linear relationships
+4. property_type and amenities of a listing are significant features that affect price
+
+**In order for hosts to maximise their profits and create higher-price listings, they should prioritise listings that have:**
+- The property type "Entire apt/house"
+- Higher numbers of amenities nearby their listing
+- A good number of accommodates 
+- The location of the listing
+
+The above features generally tend to have higher price and allows potential airbnb hosts to maximise their profits
+
+# Video Presentation
+[![our Video](https://user-images.githubusercontent.com/105051750/233738749-b73dca11-aade-4dca-857a-52d6048bb67a.png)](https://www.youtube.com/watch?v=qkc-gP21zI0&ab_channel=Shaiie)
+# Task Delegation
+### J'sen Ong Jia Xuan
+* EDA : [EDA_First25.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_First25.ipynb) 
+* ML  : Ridge Regression, XGBoost
+* Presentation
+* Data Visualization
+### Isaac Chun Jun Heng
+* EDA : [EDA_Middle23.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Middle23.ipynb)
+* ML  : Gradient Booster, KMeans, Random Forest
+* Presentation
+* Data Visualization
+* GitHub Repository 
+### Tang Teck Meng
+* EDA : [EDA_Last25.ipnyb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_Last25.ipynb)
+* ML  : Linear Regression, Lasso Regression
+* Presentation
+* Data Visualization
+# References
 * https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html
 * https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html
 * https://xgboost.readthedocs.io/en/stable/python/python_intro.html

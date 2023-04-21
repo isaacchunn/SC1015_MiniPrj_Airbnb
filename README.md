@@ -71,7 +71,7 @@ Our dataset is very large with 73 columns, hence, we first apply the pandas info
 
 The general utility functions we have made will assist in removing outliers in our data.
 
-We will also be dropping Null values when NULL values do not mean anything in the column or that the number of NULL values are too small for the column. An example would be dropping null rows for host_location as an Airbnb listing should have a string that contains the location name that corresponds with it.
+We will also be dropping those NULL values that do not have any significance value in the column or that the number of NULL values are too small for the column. An example would be dropping null rows for host_location as an Airbnb listing should have a string that contains the location name that corresponds with it.
 <br></br>
 # Exploratory Data Analysis
 We will look into univariate and bivariate EDAs concerning the interesting or important variables that we have identified.

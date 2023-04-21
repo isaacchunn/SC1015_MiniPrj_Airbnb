@@ -27,12 +27,12 @@
 2) ### [Data Cleaning and Visualization](#Dataset_importing_and_DataCleaning)
     * [Uni-Variate EDA](##Uni-Variate-EDA) 
     * [Bi-Variate EDA](##Bi-Variate-EDA) 
-<br>
-4) [Exploratory Data Analysis](#Exploratory-Data-Analysis)
-5) [Machine Learning](#Machine-Learning)
-6) [Conclusion](#Conclusion)
-7) [Video Presentation](#Video-Presentation)
-8) [References](#References)
+
+4. [Exploratory Data Analysis](#Exploratory-Data-Analysis)
+5. [Machine Learning](#Machine-Learning)
+6. [Conclusion](#Conclusion)
+7. [Video Presentation](#Video-Presentation)
+8. [References](#References)
 
 
 # Introduction
@@ -142,15 +142,7 @@ The following notebook shows us using Multi-variate K means, for detailed code a
 # Video Presentation
 --To be added--
 # References
-### Github repo :
-[https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/tree/main](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/tree/main  "https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/tree/main")
-### AIRBNB EDA exploration :
-[https://colab.research.google.com/drive/1Gh1p2MQXTThs134dRyLT6XqGNbGavm9J#scrollTo=tUY3F6v5qM96](https://colab.research.google.com/drive/1Gh1p2MQXTThs134dRyLT6XqGNbGavm9J#scrollTo=tUY3F6v5qM96  "https://colab.research.google.com/drive/1Gh1p2MQXTThs134dRyLT6XqGNbGavm9J#scrollTo=tUY3F6v5qM96")
-### Linear Regression : [https://colab.research.google.com/drive/1NJ7EAJzKxcokEkQ0YNJlczDjnhONOXlT#scrollTo=XWRNUW68KD1N](https://colab.research.google.com/drive/1NJ7EAJzKxcokEkQ0YNJlczDjnhONOXlT#scrollTo=XWRNUW68KD1N  "https://colab.research.google.com/drive/1NJ7EAJzKxcokEkQ0YNJlczDjnhONOXlT#scrollTo=XWRNUW68KD1N")
 
-### Research resources :
-* [https://www.kaggle.com/code/subhradeep88/airbnb-analysis-eda/notebook](https://www.kaggle.com/code/subhradeep88/airbnb-analysis-eda/notebook  "https://www.kaggle.com/code/subhradeep88/airbnb-analysis-eda/notebook")[https://www.kaggle.com/code/ivanovskia1/maximize-value-of-airbnb-rental](https://www.kaggle.com/code/ivanovskia1/maximize-value-of-airbnb-rental  "https://www.kaggle.com/code/ivanovskia1/maximize-value-of-airbnb-rental")
-* [https://towardsdatascience.com/how-to-maximize-profits-on-airbnb-data-based-approach-for-hosts-beaf08f26941](https://towardsdatascience.com/how-to-maximize-profits-on-airbnb-data-based-approach-for-hosts-beaf08f26941  "https://towardsdatascience.com/how-to-maximize-profits-on-airbnb-data-based-approach-for-hosts-beaf08f26941")
 * https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html
 * https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html
 * https://xgboost.readthedocs.io/en/stable/python/python_intro.html

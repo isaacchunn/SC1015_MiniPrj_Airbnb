@@ -36,7 +36,8 @@
 
 
 # Introduction
-![PICTURE OF AIRBNB LOGO](https://mma.prnewswire.com/media/1121685/Airbnb_Logo.jpg)
+![PICTURE OF AIRBNB LOGO](https://www.digital.ink/wp-content/uploads/airbnb_logo_detail.jpg) 
+
 **Airbnb, Inc.** is an American San Francisco-based company operating an online marketplace for short-term homestays and experiences. The company acts as a broker and charges a commission from each booking. The company was founded in 2008 by Brian Chesky, Nathan Blecharczyk, and Joe Gebbia.
 
 

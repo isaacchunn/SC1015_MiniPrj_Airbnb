@@ -35,7 +35,7 @@
 6. [Conclusion](#Conclusion)
 7. [Video Presentation](#Video-Presentation)
 8. [Task Delegation](#Task-Delegation)
-9. [Beyond Our Course](#Beyond-our-Course:) 
+9. [Beyond Our Course](#Beyond-our-Course)
 10. [References](#References)
 
 
@@ -188,7 +188,7 @@ The above features generally tend to have higher price and allows potential airb
 * ML  : Linear Regression, Lasso Regression
 * Presentation
 * Data Visualization
-# Beyond our Course:
+# Beyond our Course
 ### Visualizations :
 -  **Folium Map**
 

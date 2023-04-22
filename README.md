@@ -170,7 +170,7 @@ The top few important features in our classification was property_type, accommod
 The above features generally tend to have higher price and allows potential airbnb hosts to maximise their profits
 
 # Video Presentation
-[![our Video](https://user-images.githubusercontent.com/105051750/233741379-dbacab05-a476-45f0-bd32-4edbc90edf7f.png)](https://www.youtube.com/watch?v=qkc-gP21zI0&ab_channel=Shaiie)
+[![our Video](https://user-images.githubusercontent.com/105051750/233767785-6bf5aea4-1855-43d6-8526-d3963ed26ff3.png)](https://www.youtube.com/watch?v=qkc-gP21zI0&ab_channel=Shaiie)
 # Task Delegation
 ### J'sen Ong Jia Xuan
 * EDA : [EDA_First25.ipynb](https://github.com/isaacchunn/SC1015_MiniPrj_Airbnb/blob/main/EDA_First25.ipynb) 
@@ -199,7 +199,7 @@ The above features generally tend to have higher price and allows potential airb
 * K-Means
 * Lasso Regression
 * Ridge Regression
-* Gradient Boost 
+* Gradient Booster 
 * XGBoost
 
 # References

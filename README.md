@@ -35,7 +35,8 @@
 6. [Conclusion](#Conclusion)
 7. [Video Presentation](#Video-Presentation)
 8. [Task Delegation](#Task-Delegation)
-9. [References](#References)
+9. [Beyond Our Course](#Beyond-our-Course:) 
+10. [References](#References)
 
 
 # Introduction
@@ -187,6 +188,20 @@ The above features generally tend to have higher price and allows potential airb
 * ML  : Linear Regression, Lasso Regression
 * Presentation
 * Data Visualization
+# Beyond our Course:
+### Visualizations :
+-  **Folium Map**
+
+    >![folium](https://user-images.githubusercontent.com/105051750/233766475-5c00b6b9-2328-4823-9f83-35fe4b379f46.png)
+- **WordCloud**
+    >![folium](https://user-images.githubusercontent.com/105051750/233562574-ee7320c4-b8d9-4e08-80fd-148f57c54492.png)
+### Machine Learning :
+* K-Means
+* Lasso Regression
+* Ridge Regression
+* Gradient Boost 
+* XGBoost
+
 # References
 * https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html
 * https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html
